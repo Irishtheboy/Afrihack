@@ -31,11 +31,18 @@ const FormPage = () => {
     e.preventDefault();
 
     const gpa = parseFloat(formData.gpa);
-    if (gpa >= 3.0 && gpa <= 4.0) {
+    const age = parseInt(formData.age, 10);
+
+    // Check GPA and age qualifications
+    if (gpa >= 3.0 && gpa <= 4.0 && age >= 14 && age <= 25) {
       console.log('Qualified for international universities:', formData);
       navigate('/university', { state: { formData } });
     } else {
-      alert('You do not qualify for international universities.');
+      if (gpa < 3.0 || gpa > 4.0) {
+        alert('You do not qualify for international universities due to GPA.');
+      } else {
+        alert('You must be between the ages of 14 and 25.');
+      }
     }
   };
 
@@ -51,13 +58,14 @@ const FormPage = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-wrap -mx-2">
             <div className="w-full sm:w-1/2 px-2">
-              <label className="block">Name</label>
+              <label className="block">Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 className="border rounded px-3 py-2 w-full"
+                placeholder="Enter your full name"
                 required
               />
             </div>
@@ -84,6 +92,7 @@ const FormPage = () => {
                 value={formData.age}
                 onChange={handleChange}
                 className="border rounded px-3 py-2 w-full"
+                placeholder="Enter your age"
                 required
               />
             </div>
@@ -111,6 +120,7 @@ const FormPage = () => {
                 onChange={handleChange}
                 step="0.01"
                 className="border rounded px-3 py-2 w-full"
+                placeholder="Enter your GPA"
                 required
               />
               <p className="text-sm text-blue-600">

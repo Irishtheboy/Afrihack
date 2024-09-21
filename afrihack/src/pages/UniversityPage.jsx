@@ -63,9 +63,8 @@ const UniversityPage = () => {
         )}
         <button
           onClick={handleNext}
-          className="bg-[#A57C00] text-white px-4 py-2 mt-4 rounded hover:bg-blue-600"
-        >
-          Next
+          className="bg-[#A57C00] text-white px-4 py-2 mt-4 rounded">
+          Continue
         </button>
       </div>
     </div>

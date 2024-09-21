@@ -48,7 +48,7 @@ const DocumentsPage = () => {
     if (allFiles.length > 0) {
       console.log('Form submitted:', allFiles);
       alert('Empiresa Global Academy has received your application and will get back to you.');
-      navigate('/'); // Navigate back to the home page after successful submission
+      navigate('/'); 
     } else {
       alert('Please upload at least one document.');
     }
@@ -145,7 +145,7 @@ const DocumentsPage = () => {
             />
           </div>
 
-          {/* Location Evaluation */}
+      
           <div>
             <label className="block font-semibold mb-1">Location Evaluation:</label>
             <textarea
@@ -156,7 +156,6 @@ const DocumentsPage = () => {
               placeholder="Please evaluate the location..."
             />
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"

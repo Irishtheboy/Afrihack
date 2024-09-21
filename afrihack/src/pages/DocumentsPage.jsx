@@ -83,7 +83,7 @@ const DocumentsPage = () => {
               className="border-dashed border-2 border-gray-400 p-4 text-center mb-2 cursor-pointer"
               onClick={handleUploadMore}
             >
-              Drag & drop your transcript files here or <span className="text-blue-500">click to upload more</span>
+              Drag & drop your document/PDF files here or <span className="text-blue-500">click to upload more</span>
             </div>
             {transcripts.length > 0 && renderFileList(transcripts)}
             {additionalFiles.length > 0 && renderFileList(additionalFiles)}

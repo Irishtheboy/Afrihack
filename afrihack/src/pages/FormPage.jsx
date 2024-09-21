@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const countries = [
+  "United States", "Europe", "United Kingdom", "Australia", "Germany", 
+  "France", "India", "South Africa", "Kenya", "Nigeria"
+];
+
 const FormPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -9,7 +14,7 @@ const FormPage = () => {
     residence: '',
     gpa: '',
     country: '',
-    studyInterest: '' // New field for study interest
+    studyInterest: ''
   });
 
   const navigate = useNavigate();
@@ -24,14 +29,13 @@ const FormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Check GPA qualification
+
     const gpa = parseFloat(formData.gpa);
     if (gpa >= 3.0 && gpa <= 4.0) {
       console.log('Qualified for international universities:', formData);
-      navigate('/university', { state: { formData } }); // Navigate to UniversityPage with formData
+      navigate('/university', { state: { formData } });
     } else {
-      alert('You do not qualify for international universities.'); // Alert for unqualified students
+      alert('You do not qualify for international universities.');
     }
   };
 
@@ -39,7 +43,7 @@ const FormPage = () => {
     <div
       className="flex flex-col justify-center items-center min-h-screen"
       style={{
-        background: 'linear-gradient(to bottom, #001f3f, #90d5ff)', // Gradient background
+        background: 'linear-gradient(to bottom, #001f3f, #90d5ff)',
       }}
     >
       <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-3xl mx-4 transform transition-transform duration-500 hover:scale-105">
@@ -85,14 +89,18 @@ const FormPage = () => {
             </div>
             <div className="w-full sm:w-1/2 px-2">
               <label className="block">Residence</label>
-              <input
-                type="text"
+              <select
                 name="residence"
                 value={formData.residence}
                 onChange={handleChange}
                 className="border rounded px-3 py-2 w-full"
                 required
-              />
+              >
+                <option value="">Select Country</option>
+                {countries.map((country) => (
+                  <option key={country} value={country}>{country}</option>
+                ))}
+              </select>
             </div>
             <div className="w-full sm:w-1/2 px-2">
               <label className="block">GPA</label>
@@ -113,7 +121,6 @@ const FormPage = () => {
               <p className="text-sm text-gray-600">
                 Please enter your GPA (must be between 3.0 and 4.0 to qualify).
               </p>
-              
             </div>
             <div className="w-full sm:w-1/2 px-2">
               <label className="block">Country for Study</label>
@@ -130,7 +137,6 @@ const FormPage = () => {
                 <option value="UK">UK</option>
               </select>
             </div>
-            {/* New dropdown for study interest */}
             <div className="w-full sm:w-1/2 px-2">
               <label className="block">Interest of Study</label>
               <select

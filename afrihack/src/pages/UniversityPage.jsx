@@ -70,5 +70,4 @@ const UniversityPage = () => {
     </div>
   );
 };
-
 export default UniversityPage;

@@ -118,7 +118,6 @@ const DocumentsPage = () => {
             </div>
           </div>
 
-          
           {visaStatus === 'Yes' && (
             <div>
               <label className="block font-semibold mb-1">Upload Visa Documents:</label>
@@ -133,7 +132,17 @@ const DocumentsPage = () => {
             </div>
           )}
 
-          
+          {visaStatus === 'No' && (
+            <div className="mt-2">
+              <p className="text-red-600">You will need a visa to study abroad.</p>
+              <p>
+                <a href="https://www.example.com/apply-visa" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                  Click here to apply for a visa.
+                </a>
+              </p>
+            </div>
+          )}
+
           <div>
             <label className="block font-semibold mb-1">Residence Recommendation:</label>
             <textarea
@@ -145,7 +154,6 @@ const DocumentsPage = () => {
             />
           </div>
 
-      
           <div>
             <label className="block font-semibold mb-1">Location Evaluation:</label>
             <textarea
@@ -156,6 +164,7 @@ const DocumentsPage = () => {
               placeholder="Please evaluate the location..."
             />
           </div>
+          
           {/* Submit Button */}
           <button
             type="submit"

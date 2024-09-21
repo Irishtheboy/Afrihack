@@ -31,9 +31,9 @@ const Home = () => {
       </h1>
       
       {/* Increased size for the transparent card */}
-      <div className={`bg-white bg-opacity-40 p-12 max-w-md w-full rounded-lg shadow-lg transition-transform duration-700 transform ${slideIn ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'} mb-6`}>
-        <h2 className="text-2xl  text-center text-white">EGA presents</h2>
-        <p className="text-xl text-center font-italic text-[#A57C00]">STUDY ABROAD, HOME-SCHOOLING</p>
+      <div className={`bg-white bg-opacity-40 p-12 max-w-lg w-full rounded-lg shadow-lg transition-transform duration-700 transform ${slideIn ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'} mb-6`}>
+        <h2 className="text-2xl text-center text-white">EGA presents</h2>
+        <p className="text-xl text-center font-bold text-[#A57C00]">STUDY ABROAD, HOME-SCHOOLING</p>
       </div>
 
       <Link to="/form">
